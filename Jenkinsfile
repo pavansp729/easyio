@@ -17,7 +17,6 @@ pipeline {
     }
 
 	post {
-		stage('Upload') {
 
 			dir('/home/jenkins/workspace/ecs-demo'){
 				pwd(); //Log current directory
@@ -27,7 +26,6 @@ pipeline {
 					s3Upload(bucket:"jenkins-build-archieve", workingDir:'ecs-demo', includePathPattern:'**/*', path:'ecs-demo');
 				}
 			};
-		}
 
 		cleanup{
              deleteDir()
