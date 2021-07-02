@@ -24,7 +24,7 @@ pipeline {
  
 				withAWS(region:'ap-southeast-1') {
 					// Upload files from working directory 'dist' in your project workspace
-					s3Upload(bucket:"jenkins-build-archieve", workingDir:'ecs-demo', includePathPattern:'**/*', path:ecs-demo);
+					s3Upload(bucket:"jenkins-build-archieve", workingDir:'ecs-demo', includePathPattern:'**/*', path:'ecs-demo');
 				}
 			};
 		}
