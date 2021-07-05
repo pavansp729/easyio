@@ -18,19 +18,9 @@ pipeline {
 
 	post {
 
-			dir('/home/jenkins/workspace/ecs-demo'){
-				pwd(); //Log current directory
- 
-				withAWS(region:'ap-southeast-1') {
-					// Upload files from working directory 'dist' in your project workspace
-					s3Upload(bucket:"jenkins-build-archieve", workingDir:'ecs-demo', includePathPattern:'**/*', path:'ecs-demo');
-				}
-			};
+			withAWS(region:'ap-southeast-1') {
+				s3Upload(bucket:"jenkins-build-archieve", path:'/var/jenkins_home/workspace', includePathPattern:'**/*', workingDir:'dist', excludePathPattern:'README.md,**/node_modules')
+			}
 
-		cleanup{
-             deleteDir()
         }
-
-	}
-
 }
