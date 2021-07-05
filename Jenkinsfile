@@ -22,7 +22,7 @@ pipeline {
 				 entries: [bucket: 'jenkins-build-archieve',
 					   sourceFile: '**/*',
 					   storageClass: 'STANDARD',
-					   selectedRegion: 'hudson.plugins.s3.ap-southeast-1',
+					   selectedRegion: 'ap-southeast-1',
 					   uploadFromSlave: True ],
 				 consoleLogLevel: True,
 				 userMetadata: ['name': 'ecs-demo'],
