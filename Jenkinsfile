@@ -18,7 +18,7 @@ pipeline {
 
 	post {
 
-			withAWS(region:'ap-southeast-1') {
+			always(region:'ap-southeast-1') {
 				s3Upload(file:'/var/jenkins_home/workspace', bucket:'jenkins-build-archieve', path:'build/')
 			}
 
