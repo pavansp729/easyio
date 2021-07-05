@@ -28,7 +28,7 @@ pipeline {
 				 userMetadata: ['name': 'ecs-demo'],
 				 dontWaitForConcurrentBuildCompletion: False,
 				 dontSetBuildResultOnFailure: True,
-				 pluginFailureResultConstraint: 'FAILURE',)
+				 pluginFailureResultConstraint: 'FAILURE')
 		}
         }
 }
