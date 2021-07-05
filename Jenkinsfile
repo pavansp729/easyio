@@ -23,11 +23,11 @@ pipeline {
 					   sourceFile: '**/*',
 					   storageClass: 'STANDARD',
 					   selectedRegion: 'ap-southeast-1',
-					   uploadFromSlave: True ],
-				 consoleLogLevel: True,
+					   uploadFromSlave: true ],
+				 consoleLogLevel: true,
 				 userMetadata: ['name': 'ecs-demo'],
-				 dontWaitForConcurrentBuildCompletion: False,
-				 dontSetBuildResultOnFailure: True,
+				 dontWaitForConcurrentBuildCompletion: false,
+				 dontSetBuildResultOnFailure: true,
 				 pluginFailureResultConstraint: 'FAILURE')
 		}
         }
