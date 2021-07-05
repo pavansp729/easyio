@@ -17,8 +17,8 @@ pipeline {
     }
 
 	post {
-		always(region:'ap-southeast-1') {
-			s3Upload(profileName: 's3-build-storage', entries: {bucket:'jenkins-build-archieve', sourceFile:'**/*', storageClass: 'STANDARD', selectedRegion: 'hudson.plugins.s3.ap-southeast-1', uploadFromSlave: True}, consoleLogLevel: True )
+		always(region: 'ap-southeast-1') {
+			s3Upload(profileName: 's3-build-storage', entries: [bucket: 'jenkins-build-archieve', sourceFile: '**/*', storageClass: 'STANDARD', selectedRegion: 'hudson.plugins.s3.ap-southeast-1', uploadFromSlave: True ], consoleLogLevel: True)
 		}
         }
 }
