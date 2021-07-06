@@ -24,7 +24,7 @@ pipeline {
 					   storageClass: 'STANDARD',
 					   selectedRegion: 'ap-southeast-1',
 					   uploadFromSlave: true ],
-				 consoleLogLevel: true,
+				 consoleLogLevel: 'WARNING',
 				 userMetadata: ['name': 'ecs-demo'],
 				 dontWaitForConcurrentBuildCompletion: true,
 				 dontSetBuildResultOnFailure: true,
