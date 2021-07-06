@@ -26,7 +26,7 @@ pipeline {
 					   uploadFromSlave: true ],
 				 consoleLogLevel: true,
 				 userMetadata: ['name': 'ecs-demo'],
-				 dontWaitForConcurrentBuildCompletion: false,
+				 dontWaitForConcurrentBuildCompletion: true,
 				 dontSetBuildResultOnFailure: true,
 				 pluginFailureResultConstraint: 'FAILURE')
 		}
