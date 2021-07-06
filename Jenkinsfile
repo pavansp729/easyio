@@ -11,7 +11,11 @@ pipeline {
 		stage('Build') {
 			steps {
 				sh 'npm install'
-				
+			}
+		}
+		
+	post {
+			always(region:'ap-southeast-1') {
 				s3Upload(profileName: 's3-build-storage',
 					entries: [bucket: 'jenkins-build-archieve',
 						sourceFile: '**/*',
@@ -23,10 +27,9 @@ pipeline {
 					dontWaitForConcurrentBuildCompletion: true,
 					dontSetBuildResultOnFailure: true,
 					pluginFailureResultConstraint: 'FAILURE')
-				
 			}
-		}
-		
+
+        }
 
     }
 
