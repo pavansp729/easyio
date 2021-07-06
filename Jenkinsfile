@@ -11,24 +11,22 @@ pipeline {
 		stage('Build') {
 			steps {
 				sh 'npm install'
+				
+				s3Upload(profileName: 's3-build-storage',
+					entries: [bucket: 'jenkins-build-archieve',
+						sourceFile: '**/*',
+						storageClass: 'STANDARD',
+						selectedRegion: 'ap-southeast-1',
+						uploadFromSlave: true ],
+					consoleLogLevel: 'WARNING',
+					userMetadata: ['name': 'ecs-demo'],
+					dontWaitForConcurrentBuildCompletion: true,
+					dontSetBuildResultOnFailure: true,
+					pluginFailureResultConstraint: 'FAILURE')
+				
 			}
 		}
 		
-		stage('Deploy') {
-			steps {
-				s3Upload(profileName: 's3-build-storage',
-				 	entries: [bucket: 'jenkins-build-archieve',
-					   sourceFile: '**/*',
-					   storageClass: 'STANDARD',
-					   selectedRegion: 'ap-southeast-1',
-					   uploadFromSlave: true ],
-				 	consoleLogLevel: 'WARNING',
-				 	userMetadata: ['name': 'ecs-demo'],
-				 	dontWaitForConcurrentBuildCompletion: true,
-				 	dontSetBuildResultOnFailure: true,
-				 	pluginFailureResultConstraint: 'FAILURE')
-			}
-		}
 
     }
 
