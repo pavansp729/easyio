@@ -13,6 +13,8 @@ pipeline {
 				sh 'npm install'
 			}
 		}
+    
+    }
 		
 	post {
 			always(region:'ap-southeast-1') {
@@ -30,7 +32,5 @@ pipeline {
 			}
 
         }
-
-    }
 
 }
