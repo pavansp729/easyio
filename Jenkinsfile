@@ -18,6 +18,8 @@ pipeline {
 		
 	post {
 			success {
+				script {
+					
 				withAWS(region:'ap-southeast-1') {
 					s3Upload(profileName: 's3-build-storage',
 					entries: [bucket: 'jenkins-build-archieve',
@@ -30,6 +32,8 @@ pipeline {
 					dontWaitForConcurrentBuildCompletion: true,
 					dontSetBuildResultOnFailure: true,
 					pluginFailureResultConstraint: 'FAILURE')
+					
+				}
                 }
             }
 
