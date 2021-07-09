@@ -20,7 +20,7 @@ pipeline {
 			success {
 				script {
 					
-				withAWS(region:'ap-southeast-1') {
+				
 					s3Upload(profileName: 's3-build-storage',
 					entries: [bucket: 'jenkins-build-archieve',
 						sourceFile: '**/*',
@@ -33,7 +33,7 @@ pipeline {
 					dontSetBuildResultOnFailure: true,
 					pluginFailureResultConstraint: 'FAILURE')
 					
-				}
+				
                 }
             }
 
