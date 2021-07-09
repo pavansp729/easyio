@@ -17,8 +17,9 @@ pipeline {
     }
 		
 	post {
-			always(region:'ap-southeast-1') {
-				s3Upload(profileName: 's3-build-storage',
+			success {
+				withAWS(region:'ap-southeast-1') {
+					s3Upload(profileName: 's3-build-storage',
 					entries: [bucket: 'jenkins-build-archieve',
 						sourceFile: '**/*',
 						storageClass: 'STANDARD',
@@ -29,7 +30,8 @@ pipeline {
 					dontWaitForConcurrentBuildCompletion: true,
 					dontSetBuildResultOnFailure: true,
 					pluginFailureResultConstraint: 'FAILURE')
-			}
+                }
+            }
 
         }
 
