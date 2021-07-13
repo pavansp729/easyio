@@ -18,21 +18,8 @@ pipeline {
 		
 	post {
 			success {
-				script {
-					
-				
-					s3Upload(profileName: 's3-build-storage',
-					entries: [bucket: 'jenkins-build-archieve',
-						sourceFile: '**/*',
-						storageClass: 'STANDARD',
-						selectedRegion: 'ap-southeast-1',
-						uploadFromSlave: true ],
-					consoleLogLevel: 'WARNING',
-					userMetadata: ['name': 'ecs-demo'],
-					dontWaitForConcurrentBuildCompletion: true,
-					dontSetBuildResultOnFailure: true,
-					pluginFailureResultConstraint: 'FAILURE')
-					
+				s3Upload consoleLogLevel: 'INFO', dontSetBuildResultOnFailure: false, dontWaitForConcurrentBuildCompletion: true, entries: [[bucket: 'jenkins-build-archieve', excludedFile: '', flatten: false, gzipFiles: false, keepForever: false, managedArtifacts: false, noUploadOnFailure: false, selectedRegion: 'ap-southeast-1', showDirectlyInBrowser: false, sourceFile: '**/*', storageClass: 'STANDARD', uploadFromSlave: true, useServerSideEncryption: false]], pluginFailureResultConstraint: 'FAILURE', profileName: 's3-build-storage', userMetadata: []	
+			}
 				
                 }
             }
