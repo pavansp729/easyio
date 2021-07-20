@@ -22,7 +22,7 @@ pipeline {
 					dontSetBuildResultOnFailure: false,
 					dontWaitForConcurrentBuildCompletion: true,
 					entries: [[
-						bucket: 'jenkins-build-archieve/${git_branch}-${build_number}',
+						bucket: 'jenkins-build-archieve/${job_name}-${git_branch}/${build_number}-${build_id}',
 						excludedFile: '**/node_modules/**',
 						flatten: false,
 						gzipFiles: false,
@@ -39,8 +39,10 @@ pipeline {
 					profileName: 's3-build-storage',
 					userMetadata:
 						[
-							[ key: 'git_branch', value: "${env.BRANCH_NAME}"],
-							[ key: 'build_number', value: "${env.BUILD_NUMBER}"]
+							[ key: 'git_branch', value: "${env.BRANCH_NAME}" ],
+							[ key: 'build_number', value: "${env.BUILD_NUMBER}" ],
+							[ key: 'job_name', value: "${env.JOB_NAME}" ],
+							[ key: 'build_id', value: "${env.BUILD_ID}" ]
 						]	
 			}				
         }
