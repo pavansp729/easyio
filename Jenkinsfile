@@ -18,7 +18,8 @@ pipeline {
 		
 	post {
 			success {
-				sh 'ls -ld'
+				sh '''cd /home/jenkins/workspace/ecs-demo
+					ls -ld'''
 				s3Upload consoleLogLevel: 'INFO',
 					dontSetBuildResultOnFailure: false,
 					dontWaitForConcurrentBuildCompletion: true,
