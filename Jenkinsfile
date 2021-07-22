@@ -19,12 +19,12 @@ pipeline {
 	post {
 			success {
 				sh '''cd /home/jenkins/workspace/ecs-demo
-					ls -ld'''
+					ls -al'''
 				s3Upload consoleLogLevel: 'INFO',
 					dontSetBuildResultOnFailure: false,
 					dontWaitForConcurrentBuildCompletion: true,
 					entries: [[
-						bucket: 'jenkins-build-archieve/${job_name}-${git_branch}/${build_number}-${build_id}',
+						bucket: 'jenkins-build-archieve/${job_name}/${build_number}-${build_id}',
 						excludedFile: '**/node_modules/**',
 						flatten: false,
 						gzipFiles: false,
@@ -41,7 +41,6 @@ pipeline {
 					profileName: 's3-build-storage',
 					userMetadata:
 						[
-							[ key: 'git_branch', value: "${env.BRANCH_NAME}" ],
 							[ key: 'build_number', value: "${env.BUILD_NUMBER}" ],
 							[ key: 'job_name', value: "${env.JOB_NAME}" ],
 							[ key: 'build_id', value: "${env.BUILD_ID}" ]
