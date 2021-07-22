@@ -18,6 +18,7 @@ pipeline {
 		
 	post {
 			success {
+				sh 'ls -ld'
 				s3Upload consoleLogLevel: 'INFO',
 					dontSetBuildResultOnFailure: false,
 					dontWaitForConcurrentBuildCompletion: true,
