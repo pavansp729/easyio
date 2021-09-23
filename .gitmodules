@@ -1,0 +1,3 @@
+[submodule "jenkins_file"]
+	path = jenkins_file
+	url = https://github.com/pavansp729/jenkins_file.git
