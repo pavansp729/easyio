@@ -16,21 +16,23 @@ pipeline {
 	
 	tools {nodejs "NodeMod"}
 
-    stage('Start') {
-			steps {
-                script {
-                    gvy = load "jenkinsfile.groovy"
-                }
-            }
-        }
+    	stages {
+		
+			stage('Start') {
+				steps {
+					script {
+						gvy = load "jenkinsfile.groovy"
+						}
+					}
+				}
 
-	stages('Build') {
-		steps {
-			script {
-                    gvy.buildApp()
-                }
-		}
-    
+			stage('Build') {
+				steps {
+					script {
+						gvy.buildApp()
+						}
+				}	
+			}
 	}
 		
 	post {
