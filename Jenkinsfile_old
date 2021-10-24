@@ -4,7 +4,9 @@ pipeline {
 		label 'ecs'
 	}
 	
-	tools {nodejs "NodeMod"}
+	tools {
+		nodejs "NodeJs"
+		}
 
 	stages {
 
