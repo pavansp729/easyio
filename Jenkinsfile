@@ -6,6 +6,8 @@ library identifier: 'jenkinsScript', retriever: modernSCM(
         remote: 'https://github.com/pavansp729/jenkinsScript.git']
     )
 
+@Library('jenkinsScript') _
+
 def gvy
 
 pipeline {
