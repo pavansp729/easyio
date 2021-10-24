@@ -1,12 +1,5 @@
 
-library identifier: 'jenkinsScript', retriever: modernSCM(
-    [
-        $class: 'GitSCMSource',
-        credentialsId: '',
-        remote: 'https://github.com/pavansp729/jenkinsScript.git']
-    )
-
-@Library('jenkinsScript') _
+@Library('jenkinsScript@master') _
 
 def gvy
 
