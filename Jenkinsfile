@@ -1,9 +1,9 @@
 
 @Library('jenkinsScript@master') _
 
-import src.jenkinsfile
+// import src.jenkinsfile
 
-def gvy
+// def gvy
 
 pipeline {
 
