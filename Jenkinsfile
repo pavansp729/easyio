@@ -1,5 +1,5 @@
 
-@Library('jenkinsScript@master') _
+@Library('jenkinsScript')
 
 // import src.jenkinsfile
 
@@ -19,7 +19,7 @@ pipeline {
 			stage('Build') {
 				steps {
 					script {
-						buildApp()
+						jenkinsfile.buildApp()
 						}
 				}	
 			}
