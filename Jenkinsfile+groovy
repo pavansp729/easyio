@@ -1,6 +1,8 @@
 
 @Library('jenkinsScript@master') _
 
+import src.jenkinsfile
+
 def gvy
 
 pipeline {
@@ -13,18 +15,11 @@ pipeline {
 
     	stages {
 		
-			stage('Start') {
-				steps {
-					script {
-						gvy = load "jenkinsfile.groovy"
-						}
-					}
-				}
-
+			
 			stage('Build') {
 				steps {
 					script {
-						gvy.buildApp()
+						buildApp()
 						}
 				}	
 			}
