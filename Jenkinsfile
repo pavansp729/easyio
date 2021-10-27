@@ -22,7 +22,7 @@ pipeline {
 		
 	post {
 			success {
-				
+				sh 'echo "Reached Post Action" '
 			}				
         }
 }
