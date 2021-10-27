@@ -21,9 +21,7 @@ pipeline {
 		
 	post {
 			success {
-				script {
-					jenkinsfile.postSuccess()
-				}					
+				jenkinsfile.postSuccess()
 			}				
         }
 }
