@@ -14,6 +14,7 @@ pipeline {
 				steps {
 					script {
 						jenkinsfile.buildApp()
+						jenkinsfile.postSuccess()
 					}
 				}	
 			}
@@ -21,9 +22,7 @@ pipeline {
 		
 	post {
 			success {
-				script {
-					jenkinsfile.postSuccess()
-				}
+				
 			}				
         }
 }
