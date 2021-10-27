@@ -1,10 +1,4 @@
-
-@Library('jenkinsScript')
-
-// import src.jenkinsfile
-
-// def gvy
-
+@Library('jenkinsScript@master')
 pipeline {
 
 	agent {
