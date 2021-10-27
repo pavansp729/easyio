@@ -14,7 +14,7 @@ pipeline {
 				steps {
 					script {
 						jenkinsfile.buildApp()
-						jenkinsfile.postSuccess()
+						postAction.postSuccess()
 					}
 				}	
 			}
