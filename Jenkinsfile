@@ -14,14 +14,16 @@ pipeline {
 				steps {
 					script {
 						jenkinsfile.buildApp()
-						}
+					}
 				}	
 			}
 	}
 		
 	post {
 			success {
-				jenkinsfile.postSuccess()
+				script {
+					jenkinsfile.postSuccess()
+				}
 			}				
         }
 }
