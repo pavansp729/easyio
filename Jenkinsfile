@@ -1,4 +1,4 @@
-@Library('jenkinsScript@master')
+@Library('jenkinsScript@main') _
 pipeline {
 
 	agent {
