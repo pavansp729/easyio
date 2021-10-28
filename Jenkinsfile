@@ -1,2 +1,2 @@
 @Library('jenkinsScript@main') _
-combined()
+combined
