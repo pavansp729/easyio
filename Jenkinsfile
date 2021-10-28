@@ -8,21 +8,19 @@ pipeline {
 	tools {nodejs "NodeMod"}
 
     	stages {
-		
-			
-			stage('Build') {
-				steps {
-					script {
-						jenkinsfile.buildApp()
-						postAction.postSuccess()
-					}
-				}	
+		stage('Build') {
+			steps {
+				script {
+					jenkinsfile.buildApp()
+					postAction.postSuccess()
+				}
 			}
+		}
 	}
 		
 	post {
-			success {
-				sh 'echo "Reached Post Action" '
-			}				
+		success {
+			sh 'echo "Reached Post Action" '
+		}				
         }
 }
