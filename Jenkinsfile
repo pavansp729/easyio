@@ -1,2 +1,4 @@
 @Library('jenkinsScript@main') _
-combined.completeSteps()
+script {
+  combined.completeSteps()
+}
